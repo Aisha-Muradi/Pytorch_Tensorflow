@@ -31,18 +31,7 @@ read_predictions <- function(path, type) {
   for (file_name in file_names) {
     data <- read_csv(file_name, col_types = column_types, show_col_types = FALSE)
     selected_data <- select(data, all_of(columns_to_keep))
-    
-    #rename the prediction column
-    # names(selected_data)[6] <- "Prediction"
-    # if (type == "rate"){
-    #   names(selected_data)[6] <- "Prediction_Rate"
-    # } else if (type == "count"){
-    #   names(selected_data)[6] <- "Prediction_Count"
-    # } else if (type == "state"){
-    #   names(selected_data)[6] <- "Prediction_state"
-    # } else if (type == "national"){
-    #   names(selected_data)[6] <- "Prediction_National"
-    # }
+  
     
     data_list[[length(data_list) + 1]] <- selected_data
   }
